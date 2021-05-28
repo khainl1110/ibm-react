@@ -1,13 +1,14 @@
 import { AppBar } from '@material-ui/core';
 import React from 'react';
 import { Link, Router } from 'react-router-dom';
+import AppMenu from './AppMenu';
 import Routing from './Routing';
 
 export default function App() {
     return(
         <div>
             <AppBar position = "static">
-                <nav>
+                {/* <nav>
                     <ul>
                         <li>
                             <a href = "/">Home</a>
@@ -19,7 +20,8 @@ export default function App() {
                             <a href="/users">Users</a>
                         </li>
                     </ul>
-                </nav>
+                </nav> */}
+                <AppMenu />
             </AppBar>
             <Routing />
         </div>
