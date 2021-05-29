@@ -1,16 +1,26 @@
 import { Grid, makeStyles, Paper, Typography } from '@material-ui/core';
 import React from 'react';
+import CustomButton from './CustomButton'
+import OrderDetails from './OrderDetails';
 
 const useStyles = makeStyles({
     paper: {
         margin: 10,
-    }
+    },
 })
 
-export default function Order() {
+export default function Order(props) {
     const classes = useStyles()
+    let {href, name} = props.order;
+
     return (
         <Paper className = {classes.paper}>
+            {
+                /*
+                    Layout:
+                    [Picture] [Order details]
+                */
+            }
             <Grid
                 container
                 direction="row"
@@ -19,19 +29,11 @@ export default function Order() {
             >
                 <Grid item>
                     <img 
-                        src = "https://cdn.pixabay.com/photo/2016/12/14/21/10/mouse-1907494_1280.jpg"
+                        src = {href} alt = {name}
                         width = "200" height = "200" />
                 </Grid>
-                <Grid item>
-                <Grid
-                        item container
-                        direction="column"
-                        justify="center"
-                        alignItems="center"
-                    >
-                        <Typography> Standard license</Typography>
-                        <Typography> Full resolution</Typography>
-                    </Grid>
+                <Grid item> 
+                    <OrderDetails order = {props.order} />
                 </Grid>
             </Grid>
         </Paper>

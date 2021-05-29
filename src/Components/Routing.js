@@ -3,10 +3,9 @@ import {
     BrowserRouter as Router,
     Switch, Route, Link
 } from 'react-router-dom'
-
-import About from "./About"
-import Home from './Home'
-import Users from "./Users"
+import AboutPage from './AboutPage'
+import HomePage from './HomePage/HomePage'
+import Users from "./UsersPage"
 
 export default function Routing() {
     return (
@@ -16,13 +15,13 @@ export default function Routing() {
             renders the first one that matches the current URL. */}
                 <Switch>
                     <Route path="/about">
-                        <About />
+                        <AboutPage />
                     </Route>
                     <Route path="/users">
                         <Users />
                     </Route>
                     <Route path="/">
-                        <Home />
+                        <HomePage />
                     </Route>
                 </Switch>
             </div>
