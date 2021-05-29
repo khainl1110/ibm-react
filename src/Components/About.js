@@ -3,11 +3,7 @@ import React from 'react';
 export default function About() {
     return (
         <div>
-            {/* <Menu open={true}>
-                <MenuItem>Test </MenuItem>
-                <MenuItem>Haha</MenuItem>
-            </Menu> */}
-            <h1>A little bit absdfdsout me</h1>
+            <h1>A new way to shop</h1>
         </div>
         
     )
