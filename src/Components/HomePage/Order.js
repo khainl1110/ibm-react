@@ -1,6 +1,5 @@
-import { Grid, makeStyles, Paper, Typography } from '@material-ui/core';
+import { Grid, makeStyles, Paper} from '@material-ui/core';
 import React from 'react';
-import CustomButton from './CustomButton'
 import OrderDetails from './OrderDetails';
 
 const useStyles = makeStyles({

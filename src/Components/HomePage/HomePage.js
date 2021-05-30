@@ -14,7 +14,7 @@ const useStyles = makeStyles({
 
 export default function Home() {
     const classes = useStyles();
-    let {value} = useContext(AppContext);
+    let {value, value1} = useContext(AppContext);
     let [test, setTest] = useState(value);
     let [orders, setOrders] = useState(orderInfo)
     return ( 
@@ -33,19 +33,6 @@ export default function Home() {
                         )
                     })
                 }
-                
-                {/* <Grid item>
-                    <Order />
-                </Grid>
-                <Grid item>
-                    <Order />
-                </Grid>
-                <Grid item>
-                    <Order />
-                </Grid>
-                <Grid item>
-                    {test}
-                </Grid> */}
         </Grid>
     )
     

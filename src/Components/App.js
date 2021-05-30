@@ -1,21 +1,28 @@
-import { AppBar } from '@material-ui/core';
-import React, { useState } from 'react';
-import AppMenu from './AppMenu';
-import AppContext from './Context/AppContext';
+import { AppBar, Button, Link, Toolbar, Typography} from '@material-ui/core';
+import React from 'react';
 import Routing from './Routing';
-
+import AppMenu from './AppMenu';
+import ShoppingCartIcon from '@material-ui/icons/ShoppingCart';
 
 export default function App() {
-    let [test, setTest] = useState("test")
 
+ 
     return(
         <div>
-            <AppContext.Provider value = {{value: [test, setTest]}}>
-                <AppBar position = "static">
+            <AppBar position = "static">
+                <Toolbar>
                     <AppMenu />
-                </AppBar>
-                <Routing />
-            </AppContext.Provider>
+                    <Link href="/cart" color = "inherit">
+                        <Button
+                            color = "inherit"
+                            startIcon = {<ShoppingCartIcon />}
+                        >
+                            Cart
+                        </Button>
+                    </Link>
+                </Toolbar>
+            </AppBar>
+            <Routing />
         </div>
         
         

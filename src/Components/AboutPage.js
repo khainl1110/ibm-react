@@ -8,6 +8,7 @@ export default function AboutPage() {
                 <li> React and Material Design</li>
                 <li> Advanced knowledge in React such as useState, useContext</li>
                 <li> Advanced knowledge in Material Design like theme API</li>
+                <li> Software engineer concepts such as low coupling, high cohesion for organizing code</li>
             </ul>
             <p>Github: @khainl1110</p>
         </div>

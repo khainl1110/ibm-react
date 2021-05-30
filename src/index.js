@@ -1,12 +1,12 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 import './index.css';
-import App from './Components/App';
+import AppContextWrapper from './Components/AppContextWrapper';
 import reportWebVitals from './reportWebVitals';
 
 ReactDOM.render(
   <React.StrictMode>
-    <App />
+    <AppContextWrapper />
   </React.StrictMode>,
   document.getElementById('root')
 );

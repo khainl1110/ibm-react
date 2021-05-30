@@ -19,6 +19,13 @@ let orderInfo = [
         description: 'Chocolate for a better day',
         price: 6,
         id: 2
+    },
+    {
+        href: 'https://images.unsplash.com/photo-1509042239860-f550ce710b93?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=1834&q=80',
+        name: 'Coffee',
+        description: 'A reliable friend whenever you need to concentrate',
+        price: 1.5,
+        id:3
     }
 ]
 

@@ -4,6 +4,7 @@ import {
     Switch, Route, Link
 } from 'react-router-dom'
 import AboutPage from './AboutPage'
+import CartPage from './CartPage/CartPage'
 import HomePage from './HomePage/HomePage'
 import Users from "./UsersPage"
 
@@ -19,6 +20,9 @@ export default function Routing() {
                     </Route>
                     <Route path="/users">
                         <Users />
+                    </Route>
+                    <Route path="/cart">
+                        <CartPage />
                     </Route>
                     <Route path="/">
                         <HomePage />
