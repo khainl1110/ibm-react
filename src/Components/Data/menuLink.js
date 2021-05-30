@@ -6,6 +6,9 @@ let menuLink = [
         href: '/users', text: 'Users',
     },
     {
+        href: '/cart', text: 'Cart',
+    },
+    {
         href: '/', text: 'Home'
     }
 ]

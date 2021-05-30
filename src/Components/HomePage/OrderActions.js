@@ -33,7 +33,7 @@ export default function OrderActions(props) {
         else {
             let newCart = [...cart]
             alert('item found ' + newCart[index].quantity)
-            newCart[index].quantity =10;
+            newCart[index].quantity = cart[index].quantity +1;
             setCart(newCart)
         }
         
