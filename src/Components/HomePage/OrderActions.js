@@ -21,13 +21,13 @@ export default function OrderActions(props) {
             https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/find
             https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/indexOf
         */
-        let object = cart.find(item => item.id = id)
+        let object = cart.find(item => item.id == id)
         let index = cart.indexOf(object)
-        
+        alert("Object is is " + id)
         if(index==-1) {
             let newCart = [...cart]
             alert("item not found")
-            newCart.push({id:id, quantity:1})
+            newCart.push({id, quantity:1})
             setCart(newCart)
         } 
         else {
