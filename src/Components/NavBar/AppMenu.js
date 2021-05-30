@@ -1,7 +1,8 @@
-import {Link, Menu, MenuItem } from '@material-ui/core'
+import {Menu, MenuItem } from '@material-ui/core'
 import React, { useState } from 'react'
 import MenuIcon from '@material-ui/icons/Menu';
-import menuLink from './Data/menuLink';
+import menuLink from '../Data/menuLink'
+import { Link } from 'react-router-dom';
 
 
 export default function AppMenu() {
@@ -30,7 +31,7 @@ export default function AppMenu() {
                     menuLink.map(link => {
                         return(
                             <MenuItem onClick = {handleClose}>
-                                <Link href = {link.href}>{link.text}</Link>
+                                <Link to = {link.href}>{link.text}</Link>
                             </MenuItem>
                         )
                     })
