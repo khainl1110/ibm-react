@@ -23,26 +23,21 @@ export default function OrderActions(props) {
         */
         let object = cart.find(item => item.id == id)
         let index = cart.indexOf(object)
-        alert("Object is is " + id)
-        if(index==-1) {
-            let newCart = [...cart]
-            alert("item not found")
+
+        let newCart = [...cart]
+        if(index==-1) 
             newCart.push({id, quantity:1})
-            setCart(newCart)
-        } 
-        else {
-            let newCart = [...cart]
-            alert('item found ' + newCart[index].quantity)
+        else 
             newCart[index].quantity = cart[index].quantity +1;
-            setCart(newCart)
-        }
+        setCart(newCart)
+        alert("Added")
         
     }
 
     return(
         <Grid item>
             <Button className = {classes.button} onClick = {handleClick}>
-                    Buy now
+                    Add to cart
             </Button>
         </Grid>
         
