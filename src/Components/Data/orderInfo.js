@@ -26,6 +26,27 @@ let orderInfo = [
         description: 'A reliable friend whenever you need to concentrate',
         price: 1.5,
         id:3
+    },
+    {
+        href: 'https://images.unsplash.com/photo-1619538189193-2c20c210f8b6?ixid=MnwxMjA3fDF8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=701&q=80',
+        name: 'Hot dog',
+        description: 'Made with the finest ingredients to enjoy',
+        price: 2,
+        id:4
+    },
+    {
+        href: 'https://images.unsplash.com/photo-1499636136210-6f4ee915583e?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=700&q=80',
+        name: 'Chocolate cookies',
+        description: 'Hand made and carefully crafted',
+        price: 2,
+        id:5
+    },
+    {
+        href: 'https://images.unsplash.com/photo-1580587771525-78b9dba3b914?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=667&q=80',
+        name: 'Villa',
+        description: 'A nice house to live in',
+        price: 4000000,
+        id: 6
     }
 ]
 

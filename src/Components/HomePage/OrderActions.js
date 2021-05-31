@@ -21,11 +21,11 @@ export default function OrderActions(props) {
             https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/find
             https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/indexOf
         */
-        let object = cart.find(item => item.id == id)
+        let object = cart.find(item => item.id === id)
         let index = cart.indexOf(object)
 
         let newCart = [...cart]
-        if(index==-1) 
+        if(index === -1) 
             newCart.push({id, quantity:1})
         else 
             newCart[index].quantity = cart[index].quantity +1;

@@ -19,7 +19,7 @@ const useStyles = makeStyles({
 export default function CartItem(props) {
     const classes = useStyles()
     let {id, quantity} = props.item;
-    let item = orderInfo.find(i => i.id == id)
+    let item = orderInfo.find(i => i.id === id)
     let {href, name, description, price, _} = item
 
     return(

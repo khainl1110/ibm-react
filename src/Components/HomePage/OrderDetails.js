@@ -1,4 +1,4 @@
-import { Button, Grid, makeStyles, Typography } from '@material-ui/core';
+import { Grid, makeStyles, Typography } from '@material-ui/core';
 import React, { useContext } from 'react';
 import AppContext from '../Context/AppContext';
 import OrderActions from './OrderActions'
@@ -17,11 +17,6 @@ export default function OrderDetails(props) {
     let {_, name, description, price, id} = props.order;
     let {value, value2} = useContext(AppContext)
     let [cart, setCart] = value2;
-
-
-    let handleClick = () => {
-        alert("test")
-    }
 
     return (
         <Grid
