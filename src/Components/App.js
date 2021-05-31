@@ -18,6 +18,10 @@ export default function App() {
  
     return(
         <div>
+            {/*
+                Need to wrap the entire app inside Router
+                so that it wont refresh website
+            */}
             <Router>
                 <NavBar />
 
