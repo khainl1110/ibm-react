@@ -8,6 +8,7 @@ import AboutPage from './AboutPage'
 import CartPage from './CartPage/CartPage'
 import HomePage from './HomePage/HomePage'
 import Users from "./UsersPage"
+import TestingApp from './TestingApp';
 
 export default function App() {
 
@@ -35,6 +36,7 @@ export default function App() {
                     </Route>
                 </Switch>
             </div>
+            <TestingApp />
         </Router>
         
         
