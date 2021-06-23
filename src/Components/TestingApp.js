@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import SummaryForm from '../pages/summary/SummaryForm';
 
 export default function TestingApp() {
     // the testing app is to learn testing, it doesnt have any real function
@@ -7,13 +8,6 @@ export default function TestingApp() {
     let [disabled, setDisabled] = useState(false);
 
     return (
-        <div>
-            <button 
-                style = {{backgroundColor: buttonColor}}
-                onClick = {() => setButtonColor(newButtonColor)}
-                disabled = {disabled}
-            >Changed to {newButtonColor}</button>
-            <input type = "checkbox" onClick = {(e) => {setDisabled(e.target.checked)}}/>
-        </div>
+        <SummaryForm />
     );
 }

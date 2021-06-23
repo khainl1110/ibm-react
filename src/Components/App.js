@@ -22,6 +22,9 @@ export default function App() {
 
             <div>
                 <Switch>
+                    <Route path = "/testingApp">
+                        <TestingApp />
+                    </Route>
                     <Route path="/about">
                         <AboutPage />
                     </Route>
@@ -36,7 +39,6 @@ export default function App() {
                     </Route>
                 </Switch>
             </div>
-            <TestingApp />
         </Router>
         
         
