@@ -3,11 +3,11 @@ import SummaryFrom from '../SummaryForm';
 
 test('Testing Summary Form ', () => {
     render(<SummaryFrom />);
-    const element = screen.getByTestId('checkbox-agree');
+    const checkbox = screen.getByTestId('checkbox-agree');
     const button = screen.getByRole('button');
-    expect(element).not.toBeChecked();
+    expect(checkbox).not.toBeChecked();
     expect(button).toBeDisabled();
-    fireEvent.click(element);
-    expect(element).toBeChecked();
+    fireEvent.click(checkbox);
+    expect(checkbox).toBeChecked();
     expect(button).not.toBeDisabled();
 });
