@@ -9,8 +9,8 @@ const todos = (state = [], action) => {
                     text: action.text,
                     completec: false,
                 }
-            ]
-        default:
+            ];
+        default: //12
             return state;
     }
 }
