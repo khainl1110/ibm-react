@@ -13,7 +13,7 @@ export default function AboutPage() {
             <p>Github: @khainl1110</p>
             <h1>AWS Serverless</h1>
             <p>This is a new project with backend is complete on the cloud using AWS Serverless Suite</p>
-            <p>Serverless Architecture: API Gateway -> AWS Lambda -> DynamoDB</p>
+            <p>Serverless Architecture: API Gateway -{'>'} AWS Lambda -{'>'} DynamoDB</p>
         </div>
         
     )

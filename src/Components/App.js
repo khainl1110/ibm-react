@@ -9,13 +9,15 @@ import CartPage from './CartPage/CartPage'
 import HomePage from './HomePage/HomePage'
 import Users from "./UsersPage"
 import TestingApp from './TestingApp';
+import ServerlessIndex from './Serverless/ServerlessIndex';
 
 export default function App() {
 
     /*
-                Need to wrap the entire app inside Router
-                so that it wont refresh website
-            */
+        Need to wrap the entire app inside Router
+        so that it wont refresh website
+        Specific path comes first otherwise "/" will match all of it
+    */
     return(
         <Router basename = {process.env.PUBLIC_URL}>
             <NavBar />
@@ -33,6 +35,9 @@ export default function App() {
                     </Route>
                     <Route path="/cart">
                         <CartPage />
+                    </Route>
+                    <Route path = "/serverless">
+                        <ServerlessIndex />
                     </Route>
                     <Route path="/">
                         <HomePage />
