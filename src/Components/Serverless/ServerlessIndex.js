@@ -1,15 +1,8 @@
 import { Grid, Paper } from "@material-ui/core"
-import { makeStyles } from '@material-ui/core/styles';
 import { useEffect, useState } from "react"
-
-const useStyles = makeStyles((theme)=> ({
-    item : {
-        padding : theme.spacing(5)
-    }
-}))
+import ServerlessItem from "./ServerlessItem";
 
 export default function ServerlessIndex() {
-    const classes = useStyles();
     let [movies, setMovies] = useState([])
 
     useEffect(() => {
@@ -19,13 +12,13 @@ export default function ServerlessIndex() {
             .then(data => {
                 setMovies(data.Items)
                 console.log(data.Items)
-                console.log("Testing ", data.Items[0].year.N)
+                console.log(typeof(data.Items))
             })
     }, [])
 
     return (
         <Paper>
-            <h1>This is serverless app</h1>
+            <h1>Data</h1>
             <Grid
                 container
                 direction="row"
@@ -35,11 +28,7 @@ export default function ServerlessIndex() {
                 {
                     movies.map(movie => { 
                         return(
-                            <Grid item className = {classes.item}>
-
-                                <h3>Test {movie.year.N}</h3>
-                                <h3>{movie.title.S}</h3>
-                            </Grid>
+                            <ServerlessItem movie = {movie} />
                         )
                     })
                 }
