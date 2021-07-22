@@ -27,6 +27,9 @@ export default function NavBar() {
                             Cart
                         </Button>
                     </Link>
+                    <Link to ="/serverless">
+                        Serverless
+                    </Link>
                 </Grid>
                 
             </Toolbar>

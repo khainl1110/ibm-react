@@ -1,5 +1,6 @@
 import { Grid, Paper } from "@material-ui/core"
 import { useEffect, useState } from "react"
+import ServerlessAddItem from "./ServerlessAddItem";
 import ServerlessItem from "./ServerlessItem";
 
 export default function ServerlessIndex() {
@@ -18,6 +19,8 @@ export default function ServerlessIndex() {
 
     return (
         <Paper>
+            <h1>Add data</h1>
+            <ServerlessAddItem />
             <h1>Data</h1>
             <Grid
                 container
