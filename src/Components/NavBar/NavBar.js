@@ -27,8 +27,12 @@ export default function NavBar() {
                             Cart
                         </Button>
                     </Link>
-                    <Link to ="/serverless">
+                    <Link to ="/serverless" className = {classes.button}>
+                        <Button
+                            color = "inherit"
+                        >
                         Serverless
+                        </Button>
                     </Link>
                 </Grid>
                 

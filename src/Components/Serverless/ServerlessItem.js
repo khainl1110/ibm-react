@@ -1,12 +1,17 @@
-import { Grid } from '@material-ui/core';
+import { Grid, Typography } from '@material-ui/core';
 import { makeStyles } from '@material-ui/core/styles';
 import EditIcon from '@material-ui/icons/Edit';
 import { useEffect, useState } from 'react';
 
 const useStyles = makeStyles((theme)=> ({
     item : {
-        padding : theme.spacing(10)
-    }
+        padding : theme.spacing(5),
+        margin: '1em',
+        backgroundColor: theme.palette.secondary.main,
+        '&:hover': {
+            backgroundColor: theme.palette.secondary.dark,
+        }
+    },
 }))
 
 export default function ServerlessItem({movie}) {
@@ -42,14 +47,14 @@ export default function ServerlessItem({movie}) {
     }
     return(
         <Grid item className = {classes.item}>
-            <h3>Details</h3>
-            <h3>{movie.year.N}</h3>
-            <h3>{movie.title.S}</h3>
+            <Typography variant = "h6">Key value</Typography>
+            <Typography variant = "h6">Year: {movie.year.N}</Typography>
+            <Typography variant = "h6">Movie: {movie.title.S}</Typography>
             {/* These attributes below might not existed so need to check them first */}
-            { movie.copies && <h3>{movie.copies.S}</h3>}
-            { movie.quantity && <h3>{movie.quantity.S}</h3>}
-            { movie.author && <h3>{movie.author.S}</h3>}
-            <h4>Edit below</h4>
+            { movie.copies && <Typography>{movie.copies.S}</Typography>}
+            { movie.quantity && <Typography>{movie.quantity.S}</Typography>}
+            { movie.author && <Typography>{movie.author.S}</Typography>}
+            <Typography>Edit below</Typography>
             <input 
                 type = "text" 
                 placeholder = "attribute"
