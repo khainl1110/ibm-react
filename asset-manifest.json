@@ -1,22 +1,22 @@
 {
   "files": {
     "main.css": "/react-learn/static/css/main.6dea0f05.chunk.css",
-    "main.js": "/react-learn/static/js/main.8c89710a.chunk.js",
-    "main.js.map": "/react-learn/static/js/main.8c89710a.chunk.js.map",
-    "runtime-main.js": "/react-learn/static/js/runtime-main.98e53390.js",
-    "runtime-main.js.map": "/react-learn/static/js/runtime-main.98e53390.js.map",
-    "static/js/2.fc44a511.chunk.js": "/react-learn/static/js/2.fc44a511.chunk.js",
-    "static/js/2.fc44a511.chunk.js.map": "/react-learn/static/js/2.fc44a511.chunk.js.map",
-    "static/js/3.1794f41c.chunk.js": "/react-learn/static/js/3.1794f41c.chunk.js",
-    "static/js/3.1794f41c.chunk.js.map": "/react-learn/static/js/3.1794f41c.chunk.js.map",
+    "main.js": "/react-learn/static/js/main.e836ba94.chunk.js",
+    "main.js.map": "/react-learn/static/js/main.e836ba94.chunk.js.map",
+    "runtime-main.js": "/react-learn/static/js/runtime-main.9ceccea4.js",
+    "runtime-main.js.map": "/react-learn/static/js/runtime-main.9ceccea4.js.map",
+    "static/js/2.58733521.chunk.js": "/react-learn/static/js/2.58733521.chunk.js",
+    "static/js/2.58733521.chunk.js.map": "/react-learn/static/js/2.58733521.chunk.js.map",
+    "static/js/3.9fd12017.chunk.js": "/react-learn/static/js/3.9fd12017.chunk.js",
+    "static/js/3.9fd12017.chunk.js.map": "/react-learn/static/js/3.9fd12017.chunk.js.map",
     "index.html": "/react-learn/index.html",
     "static/css/main.6dea0f05.chunk.css.map": "/react-learn/static/css/main.6dea0f05.chunk.css.map",
-    "static/js/2.fc44a511.chunk.js.LICENSE.txt": "/react-learn/static/js/2.fc44a511.chunk.js.LICENSE.txt"
+    "static/js/2.58733521.chunk.js.LICENSE.txt": "/react-learn/static/js/2.58733521.chunk.js.LICENSE.txt"
   },
   "entrypoints": [
-    "static/js/runtime-main.98e53390.js",
-    "static/js/2.fc44a511.chunk.js",
+    "static/js/runtime-main.9ceccea4.js",
+    "static/js/2.58733521.chunk.js",
     "static/css/main.6dea0f05.chunk.css",
-    "static/js/main.8c89710a.chunk.js"
+    "static/js/main.e836ba94.chunk.js"
   ]
 }
