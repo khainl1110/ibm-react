@@ -1,27 +1,27 @@
-import { Grid, Paper } from "@material-ui/core"
+import { Grid, Paper, Typography } from "@material-ui/core"
 import { useEffect, useState } from "react"
 import ServerlessAddItem from "./ServerlessAddItem";
 import ServerlessItem from "./ServerlessItem";
+import ServerlessAbout from "./ServerlessAbout";
 
 export default function ServerlessIndex() {
     let [movies, setMovies] = useState([])
-
+    
     useEffect(() => {
+        // fetch this URL will get us all the movies from data.Items
         fetch('https://iov3zsd5oh.execute-api.us-west-2.amazonaws.com/Beta/movies', {
         })
             .then(response => response.json())
             .then(data => {
                 setMovies(data.Items)
-                console.log(data.Items)
-                console.log(typeof(data.Items))
             })
     }, [])
 
     return (
         <Paper>
-            <h1>Add data</h1>
+            <ServerlessAbout />
             <ServerlessAddItem />
-            <h1>Data</h1>
+            <Typography variant = "h5">Data</Typography>
             <Grid
                 container
                 direction="row"

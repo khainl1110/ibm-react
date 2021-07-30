@@ -19,6 +19,13 @@ export default function NavBar() {
             <Toolbar>
                 <AppMenu />
                 <Grid>
+                    <Link to = "/about" className = {classes.button}>
+                        <Button
+                            color = "inherit"
+                        >
+                            About
+                        </Button>
+                    </Link>
                     <Link to="/cart" className = {classes.button} >
                         <Button
                             color = "inherit"

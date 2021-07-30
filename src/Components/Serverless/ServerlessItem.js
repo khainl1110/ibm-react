@@ -1,17 +1,25 @@
-import { Grid, Typography } from '@material-ui/core';
+import { Grid, Paper, Typography, TextField, Button } from '@material-ui/core';
 import { makeStyles } from '@material-ui/core/styles';
 import EditIcon from '@material-ui/icons/Edit';
 import { useEffect, useState } from 'react';
 
 const useStyles = makeStyles((theme)=> ({
+    paper: {
+        margin: 10,
+        '&:hover': {
+            backgroundColor: '#dbdbdb',
+        },
+    }, 
     item : {
         padding : theme.spacing(5),
         margin: '1em',
-        backgroundColor: theme.palette.secondary.main,
-        '&:hover': {
-            backgroundColor: theme.palette.secondary.dark,
-        }
     },
+    mainText: {
+        color: theme.palette.secondary.main,
+    }, 
+    secondaryText: {
+        color: theme.palette.primary.main,
+    }
 }))
 
 export default function ServerlessItem({movie}) {
@@ -30,44 +38,62 @@ export default function ServerlessItem({movie}) {
     let requestChange = async () => {
         let result = await fetch('https://iov3zsd5oh.execute-api.us-west-2.amazonaws.com/Beta/movies', {
             method: 'PUT',
-            headers: {
-                'Access-Control-Allow-Headers': '*',
-                'Access-Control-Allow-Origin': "*",
-            },
-            body: {
+            body: JSON.stringify({
                 "tableName": "MOVIES",
                 "year": movie.year.N,
                 "title": movie.title.S,
                 "updateTitle": attribute,
                 "updateValue": value
-            }
+            })
         })
-        console.log(result)
-        alert("Attribute changed")
+        .then(response =>  response.json())
+        .then(data => {
+            if(data.statusCode === 200)
+                alert("Attribute changed")
+            else {
+                alert("For some reason failed to update")
+                console.log(data.errorMessage)
+            }
+            console.log(data)
+        })
+        
     }
     return(
-        <Grid item className = {classes.item}>
-            <Typography variant = "h6">Key value</Typography>
-            <Typography variant = "h6">Year: {movie.year.N}</Typography>
-            <Typography variant = "h6">Movie: {movie.title.S}</Typography>
-            {/* These attributes below might not existed so need to check them first */}
-            { movie.copies && <Typography>{movie.copies.S}</Typography>}
-            { movie.quantity && <Typography>{movie.quantity.S}</Typography>}
-            { movie.author && <Typography>{movie.author.S}</Typography>}
-            <Typography>Edit below</Typography>
-            <input 
-                type = "text" 
-                placeholder = "attribute"
-                value = {attribute}
-                onChange = {handleAttributeChange}
-            />
-            <input 
-                type = "text" 
-                placeholder = "value" 
-                value = {value}
-                onChange = {handleValueChange}
-            />
-            <button onClick = {requestChange}>Confirm</button>
-        </Grid>
+        <Paper className = {classes.paper}>
+            <Grid item className = {classes.item}>
+                <Typography 
+                    variant = "h6"
+                    className = {classes.mainText}
+                >Year: {movie.year.N}</Typography>
+                <Typography 
+                    variant = "h6"
+                    className = {classes.mainText}
+                >Movie: {movie.title.S}</Typography>
+                {/* These attributes below might not existed so need to check them first */}
+                { movie.copies && <Typography>Copies: {movie.copies.S}</Typography>}
+                { movie.quantity && <Typography>Quantity: {movie.quantity.S}</Typography>}
+                { movie.author && <Typography>Author: {movie.author.S}</Typography>}
+                <Typography className = {classes.secondaryText}>Edit below</Typography>
+                <TextField
+                    type = "text" 
+                    label = "attribute"
+                    value = {attribute}
+                    onChange = {handleAttributeChange}
+                />
+                <TextField 
+                    id="standard-basic"
+                    type = "text" 
+                    label="attributevalue"  
+                    value = {value}
+                    onChange = {handleValueChange}
+                />
+                <Button 
+                    className = {classes.secondaryText}
+                    onClick = {requestChange}
+                >
+                Confirm
+                </Button>
+            </Grid>
+        </Paper>
     )
 }

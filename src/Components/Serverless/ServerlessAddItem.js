@@ -1,7 +1,22 @@
-import { Modal } from "@material-ui/core";
+import { Modal, Typography } from "@material-ui/core";
+import { makeStyles } from '@material-ui/core/styles';
 import { useState } from "react"
 
+const useStyles = makeStyles((theme) => ({
+    modal: {
+        position: 'absolute',
+        width: 400,
+        backgroundColor: theme.palette.background.paper,
+        border: '2px solid #000',
+        boxShadow: theme.shadows[5],
+        padding: theme.spacing(2, 4, 3),
+        top: '30%',
+        left: '30%'
+    },
+}))
 export default function ServerlessAddItem(){
+    const classes = useStyles();
+
     // properties for tracking modal
     let [ open, setOpen ] = useState(false);
 
@@ -54,13 +69,15 @@ export default function ServerlessAddItem(){
     return(
         <div>
             <button type = "button" onClick = {() => setOpen(true)}>
-                Add Item
+                <Typography>
+                    Add Item
+                </Typography>
             </button>
             <Modal
                 open = {open}
                 onClose = {() => setOpen(false)}
             >
-                <>
+                <div className = {classes.modal}>
                     <h3>Add item</h3>
                     {
                         inputs.map(input => {
@@ -75,7 +92,7 @@ export default function ServerlessAddItem(){
                         })
                     }
                     <button onClick = {createNewItem}> Add new item</button>
-                </>
+                </div>
             </Modal>
         </div>
     )
