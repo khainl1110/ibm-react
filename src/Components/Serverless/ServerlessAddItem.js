@@ -53,23 +53,27 @@ export default function ServerlessAddItem(){
     ]
 
     let createNewItem = () => {
-        fetch('https://iov3zsd5oh.execute-api.us-west-2.amazonaws.com/Beta/movies', {
-            method: 'POST',
-            headers: {
-                'Content-Type': 'application/json',
-            },
-            // need to stringify or it won't work
-            body: JSON.stringify({
-                "year": year,
-                "title": title,
-                "copies": copies
+        if(year && title) {
+            fetch('https://iov3zsd5oh.execute-api.us-west-2.amazonaws.com/Beta/movies', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json',
+                },
+                // need to stringify or it won't work
+                body: JSON.stringify({
+                    "year": year,
+                    "title": title,
+                    "copies": copies
+                })
             })
-        })
-        .then(data => {
-            console.log('Whatever')
-            console.log(data)
-        })
-        .catch(err => console.log(err))
+            .then(data => {
+                if(data.status)
+                    alert("Item added")
+                else 
+                    alert("Error")
+            })
+            .catch(err => console.log(err))
+        }
     }
 
     return(
@@ -109,6 +113,10 @@ export default function ServerlessAddItem(){
                     > 
                     Add new item
                     </Button>
+                    <Typography>
+                        Note: title and year values are required <br/>
+                        No effect if title and year pair already existed
+                    </Typography>
                 </div>
             </Modal>
         </div>

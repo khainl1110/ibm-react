@@ -40,7 +40,8 @@ export default function ServerlessItem({movie}) {
     }
 
     let requestChange = async () => {
-        let result = await fetch('https://iov3zsd5oh.execute-api.us-west-2.amazonaws.com/Beta/movies', {
+        if(attribute && value) {
+            let result = await fetch('https://iov3zsd5oh.execute-api.us-west-2.amazonaws.com/Beta/movies', {
             method: 'PUT',
             body: JSON.stringify({
                 "tableName": "MOVIES",
@@ -49,18 +50,18 @@ export default function ServerlessItem({movie}) {
                 "updateTitle": attribute,
                 "updateValue": value
             })
-        })
-        .then(response =>  response.json())
-        .then(data => {
-            if(data.statusCode === 200)
-                alert("Attribute changed")
-            else {
-                alert("For some reason failed to update")
-                console.log(data.errorMessage)
-            }
-            console.log(data)
-        })
-        
+            })
+            .then(response =>  response.json())
+            .then(data => {
+                if(data.statusCode === 200)
+                    alert("Attribute changed")
+                else {
+                    alert("For some reason failed to update")
+                    console.log(data.errorMessage)
+                }
+                console.log(data)
+            })
+        }
     }
     return(
         <Paper className = {classes.paper}>
