@@ -1,4 +1,4 @@
-import { Modal, Typography } from "@material-ui/core";
+import { Modal, Typography, TextField, Button } from "@material-ui/core";
 import { makeStyles } from '@material-ui/core/styles';
 import { useState } from "react"
 
@@ -12,6 +12,12 @@ const useStyles = makeStyles((theme) => ({
         padding: theme.spacing(2, 4, 3),
         top: '30%',
         left: '30%'
+    },
+    mainText: {
+        color: theme.palette.secondary.main,
+    }, 
+    secondaryText: {
+        color: theme.palette.primary.main,
     },
 }))
 export default function ServerlessAddItem(){
@@ -29,19 +35,19 @@ export default function ServerlessAddItem(){
         {
             type : "text",
             value: title,
-            placeholder: "title",
+            label: "title",
             onChange: (e) => setTitle(e.target.value)
         },
         {
             type: "text",
             value: year,
-            placeholder: "year",
+            label: "year",
             onChange: (e) => setYear(e.target.value)
         }, 
         {
             type: 'text',
             value: copies,
-            placeholder: 'copies', 
+            label: 'copies', 
             onChange: (e) => setCopies(e.target.value)
         }
     ]
@@ -68,6 +74,7 @@ export default function ServerlessAddItem(){
 
     return(
         <div>
+            {/* this will open/close the modal */}
             <button type = "button" onClick = {() => setOpen(true)}>
                 <Typography>
                     Add Item
@@ -78,20 +85,30 @@ export default function ServerlessAddItem(){
                 onClose = {() => setOpen(false)}
             >
                 <div className = {classes.modal}>
-                    <h3>Add item</h3>
+                    <Typography 
+                        variant = "h5" 
+                        className = {classes.mainText}
+                    >
+                    Add item
+                    </Typography>
                     {
                         inputs.map(input => {
                             return(
-                                <input 
+                                <TextField
                                     type = { input.type }
-                                    placeholder = { input.placeholder }
+                                    label = { input.label }
                                     onChange = { input.onChange }
                                     value = { input.value }
                                 />
                             )
                         })
                     }
-                    <button onClick = {createNewItem}> Add new item</button>
+                    <Button 
+                        onClick = {createNewItem}
+                        className = {classes.secondaryText}
+                    > 
+                    Add new item
+                    </Button>
                 </div>
             </Modal>
         </div>

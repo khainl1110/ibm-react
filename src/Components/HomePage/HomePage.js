@@ -1,6 +1,6 @@
 import React, {useContext, useState} from 'react';
 import { makeStyles } from '@material-ui/styles';
-import { Grid } from '@material-ui/core';
+import { Grid, Typography } from '@material-ui/core';
 import Order from './Order';
 import AppContext from '../Context/AppContext';
 import orderInfo from '../Data/orderInfo';
@@ -18,22 +18,25 @@ export default function Home() {
     let [test, setTest] = useState(value);
     let [orders, setOrders] = useState(orderInfo)
     return ( 
-        <Grid
-            container
-            direction="row"
-            justify="center"
-            alignItems="center"
-            >
-                {
-                    orders.map(order => {
-                        return(
-                            <Grid item>
-                                <Order order = {order} />
-                            </Grid>
-                        )
-                    })
-                }
-        </Grid>
+        <>
+            <Typography variant = "h5">React mock shopping app </Typography>
+            <Grid
+                container
+                direction="row"
+                justify="center"
+                alignItems="center"
+                >
+                    {
+                        orders.map(order => {
+                            return(
+                                <Grid item>
+                                    <Order order = {order} />
+                                </Grid>
+                            )
+                        })
+                    }
+            </Grid>
+        </>
     )
     
 }

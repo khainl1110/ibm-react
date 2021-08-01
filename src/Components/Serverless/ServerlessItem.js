@@ -2,6 +2,7 @@ import { Grid, Paper, Typography, TextField, Button } from '@material-ui/core';
 import { makeStyles } from '@material-ui/core/styles';
 import EditIcon from '@material-ui/icons/Edit';
 import { useEffect, useState } from 'react';
+import ServerlessDelete from './ServerlessDelete';
 
 const useStyles = makeStyles((theme)=> ({
     paper: {
@@ -19,13 +20,16 @@ const useStyles = makeStyles((theme)=> ({
     }, 
     secondaryText: {
         color: theme.palette.primary.main,
+    },
+    warningText: {
+        color: theme.palette.warning.dark,
     }
 }))
 
 export default function ServerlessItem({movie}) {
     const classes = useStyles();
     let [ attribute, setAttribute ] = useState("")
-    let [ value, setValue ] = useState(" ")
+    let [ value, setValue ] = useState("")
 
     let handleAttributeChange = (e) => {
         setAttribute(e.target.value)
@@ -64,11 +68,28 @@ export default function ServerlessItem({movie}) {
                 <Typography 
                     variant = "h6"
                     className = {classes.mainText}
-                >Year: {movie.year.N}</Typography>
-                <Typography 
-                    variant = "h6"
-                    className = {classes.mainText}
-                >Movie: {movie.title.S}</Typography>
+                >
+                Year: {movie.year.N}
+                </Typography>
+                <Grid 
+                    item container 
+                    direction="row" 
+                    justifyContent="space-between" 
+                    alignItems="center"
+                >
+                    <Typography 
+                        variant = "h6"
+                        className = {classes.mainText}
+                    >
+                    Movie: {movie.title.S}
+                    </Typography>
+                    <ServerlessDelete />
+                    {/* <Button 
+                        className = {classes.warningText}
+                    >
+                        Delete 
+                    </Button> */}
+                </Grid>
                 {/* These attributes below might not existed so need to check them first */}
                 { movie.copies && <Typography>Copies: {movie.copies.S}</Typography>}
                 { movie.quantity && <Typography>Quantity: {movie.quantity.S}</Typography>}
@@ -83,7 +104,7 @@ export default function ServerlessItem({movie}) {
                 <TextField 
                     id="standard-basic"
                     type = "text" 
-                    label="attributevalue"  
+                    label="value"  
                     value = {value}
                     onChange = {handleValueChange}
                 />
