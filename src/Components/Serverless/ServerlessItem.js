@@ -56,7 +56,7 @@ export default function ServerlessItem({movie}) {
                 if(data.statusCode === 200)
                     alert("Attribute changed")
                 else {
-                    alert("For some reason failed to update")
+                    alert(data.errorMessage)
                     console.log(data.errorMessage)
                 }
                 console.log(data)
@@ -115,6 +115,9 @@ export default function ServerlessItem({movie}) {
                 >
                 Confirm
                 </Button>
+                <Typography>
+                    Can only change values that are not part of key (Year, Movie)
+                </Typography>
             </Grid>
         </Paper>
     )

@@ -3,6 +3,7 @@ import { useEffect, useState } from "react"
 import ServerlessAddItem from "./ServerlessAddItem";
 import ServerlessItem from "./ServerlessItem";
 import ServerlessAbout from "./ServerlessAbout";
+import ServerlessThought from "./ServerlessThought";
 
 export default function ServerlessIndex() {
     let [movies, setMovies] = useState([])
@@ -36,6 +37,7 @@ export default function ServerlessIndex() {
                     })
                 }
             </Grid>
+            <ServerlessThought />
         </Paper>
     )
 }
