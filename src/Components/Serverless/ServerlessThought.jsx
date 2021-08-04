@@ -11,11 +11,23 @@ export default function ServerlessThought() {
                 Instead of having a unique key, you can have two keys to be part of unique key <br />
                 And instead of doing relational databases, it's better to store anything in one row
             </Typography>
+            <Typography variant = "h6">
+                Architecture DynamoDB
+            </Typography>
+            <Typography>
+                MOVIES table with year and title as part of key
+            </Typography>
+            <Typography variant = "h6">
+                Architecture API Gateway
+            </Typography>
             <Typography variant = "body2">
                 Invoke URL <i> https://iov3zsd5oh.execute-api.us-west-2.amazonaws.com/Beta/movies </i> <br />
                 Body <br />
                 GET: No body needed
-                POST body JSON must contains these attributes and value: year, title and copies
+                POST(create new movie): body JSON must contains these attributes and value: year, title and copies <br />
+                PUT (update created movie): body JSON must contains: tableName("MOVIES"), year, title, updateTitle(attribute to update), updateValue <br />
+                DELETE (delete movie): body JSON must contains: year and title
+
             </Typography>
         </>
     )
