@@ -2,7 +2,7 @@ import { Typography } from "@material-ui/core";
 export default function ServerlessAbout() {
     return(
         <>
-            <h1>AWS Serverless</h1>
+            <Typography variant = "h3">AWS Serverless</Typography>
             <Typography variant = "body1">
                 This is a new project with the backend is completely 
                 on the cloud using AWS Serverless Suite <br/>
