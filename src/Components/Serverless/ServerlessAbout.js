@@ -27,6 +27,7 @@ export default function ServerlessAbout() {
             </Typography>
             <Typography className = {classes.warningText}>
                 Update things from this frontend sometimes works, sometimes don't <br />
+                I still need to look into how to get API gateway works well with Lambda function <br />
                 But invoke the URL (given below) directly from Postman always works <br />
             </Typography>
         </>
