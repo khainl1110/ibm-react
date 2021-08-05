@@ -2,8 +2,11 @@ import { Typography } from '@material-ui/core';
 export default function ServerlessThought() {
     return(
         <>
+            <Typography variant = "h6">
+                Thoughts on AWS: 
+            </Typography>
             <Typography variant = "body2">
-                Thoughts on AWS: AWS is a very powerful service that enable cloud computing.
+                AWS is a very powerful service that enable cloud computing.
                 However, I don't really have a use case with their famous EC2 instance <br />
                 So I try out their Serverless suite and it's very good.
                 However, some documentations are not up to date so it's hard to figure out <br />
@@ -14,7 +17,7 @@ export default function ServerlessThought() {
             <Typography variant = "h6">
                 Architecture DynamoDB
             </Typography>
-            <Typography>
+            <Typography variant = "body2">
                 MOVIES table with year and title as part of key
             </Typography>
             <Typography variant = "h6">
