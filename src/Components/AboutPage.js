@@ -4,8 +4,11 @@ export default function AboutPage() {
     return (
         <div>
             <Typography variant = "h6">
-                About me: International student pursuing BS Software Engineer at SJSU '23 <br/>
-                <a href ="linkedin.com/in/khai-nguyen-b59503106/">LinkedIn </a>
+                About me: International student pursuing BS Software Engineer at SJSU '23 <br />
+                Like technologies in general, currently learning about cloud and security <br />
+                Feel free to connect by any means and talk! <br />
+                Click on Thoughts section to see my what I think about some technologies I learn <br/>
+                <a href ="https://linkedin.com/in/khai-nguyen-b59503106/">LinkedIn </a>
                 Email: khainl1110@gmail.com
                 (612) 743-6850
             </Typography>

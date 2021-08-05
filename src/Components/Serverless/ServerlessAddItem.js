@@ -71,6 +71,7 @@ export default function ServerlessAddItem(){
                     alert("Item added")
                 else 
                     alert("Error")
+                console.log(data)
             })
             .catch(err => console.log(err))
         }
