@@ -10,6 +10,7 @@ import HomePage from './HomePage/HomePage'
 import Users from "./UsersPage"
 import TestingApp from './TestingApp';
 import ServerlessIndex from './Serverless/ServerlessIndex';
+import Thoughts from "./Thoughts";
 
 export default function App() {
 
@@ -38,6 +39,9 @@ export default function App() {
                     </Route>
                     <Route path = "/serverless">
                         <ServerlessIndex />
+                    </Route>
+                    <Route path = "/thoughts">
+                        <Thoughts />
                     </Route>
                     <Route path="/">
                         <HomePage />

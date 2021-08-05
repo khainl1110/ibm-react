@@ -41,6 +41,13 @@ export default function NavBar() {
                         Serverless
                         </Button>
                     </Link>
+                    <Link to = "/thoughts" className = {classes.button}>
+                        <Button 
+                            color = "inherit"
+                        >
+                            Thoughts
+                        </Button>
+                    </Link>
                 </Grid>
                 
             </Toolbar>
