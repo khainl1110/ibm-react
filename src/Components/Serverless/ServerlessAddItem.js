@@ -19,6 +19,7 @@ const useStyles = makeStyles((theme) => ({
     secondaryText: {
         color: theme.palette.primary.main,
     },
+    
 }))
 export default function ServerlessAddItem(){
     const classes = useStyles();
@@ -80,13 +81,20 @@ export default function ServerlessAddItem(){
 
     return(
         <div>
-            <Button href = "#architecture">
+            <Button 
+                href = "#architecture"  
+                className = {classes.secondaryText}
+            >
                 <Typography>
                     Go to architecture
                 </Typography>
             </Button>
             {/* this will open/close the modal */}
-            <Button type = "button" onClick = {() => setOpen(true)}>
+            <Button 
+                type = "button" 
+                onClick = {() => setOpen(true)}
+                className = {classes.secondaryText}
+            >
                 <Typography>
                     Add Item
                 </Typography>

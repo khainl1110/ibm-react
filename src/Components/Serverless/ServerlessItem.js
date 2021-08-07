@@ -33,6 +33,7 @@ export default function ServerlessItem({movie}) {
 
     let [ keys, setKeys ] = useState([])
 
+    // working to loop through every key in object
     useEffect(()=> {
         const keys = Object.keys(movie);
         keys.forEach((key, index) => {
@@ -52,7 +53,7 @@ export default function ServerlessItem({movie}) {
 
     let requestChange = async () => {
         if(attribute && value) {
-            let result = await fetch('https://iov3zsd5oh.execute-api.us-west-2.amazonaws.com/Beta/movies', {
+            await fetch('https://iov3zsd5oh.execute-api.us-west-2.amazonaws.com/Beta/movies', {
             method: 'PUT',
             body: JSON.stringify({
                 "tableName": "MOVIES",
@@ -95,7 +96,7 @@ export default function ServerlessItem({movie}) {
                     >
                     movie: {movie.title.S}
                     </Typography>
-                    <ServerlessDelete />
+                    <ServerlessDelete movie = {movie}/>
                 </Grid>
                 {/* These attributes below might not existed so need to check them first */}
                 { movie.copies && <Typography>copies: {movie.copies.S}</Typography>}
