@@ -80,12 +80,17 @@ export default function ServerlessAddItem(){
 
     return(
         <div>
+            <Button href = "#architecture">
+                <Typography>
+                    Go to architecture
+                </Typography>
+            </Button>
             {/* this will open/close the modal */}
-            <button type = "button" onClick = {() => setOpen(true)}>
+            <Button type = "button" onClick = {() => setOpen(true)}>
                 <Typography>
                     Add Item
                 </Typography>
-            </button>
+            </Button>
             <Modal
                 open = {open}
                 onClose = {() => setOpen(false)}

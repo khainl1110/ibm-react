@@ -31,7 +31,6 @@ export default function ServerlessAbout() {
             <Typography className = {classes.warningText}>
                 Because of how each values has different keys, don't add new attribute other than ones that already defined<br />
                 I haven't really figured out how to loop through object keys to display all properties<br />
-                Edit items by invoking URL from Postman might be different from editing with frontend <br />
             </Typography>
         </>
     )
