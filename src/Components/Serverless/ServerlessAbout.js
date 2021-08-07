@@ -21,14 +21,17 @@ export default function ServerlessAbout() {
                 Gateway is the routing layer <br/>
                 Click on Serverless button above the access the app <br />
                 The IAM account below has been given permission to view DynamoDB and Lambda function <br />
+                <b>
                 URL: https://khainl1110-aws.signin.aws.amazon.com/console/ <br/>
                 Username: visitor <br />
                 Password: passenger3879!@ <br />
+                Choose us-west-2 region <br />
+                </b>
             </Typography>
             <Typography className = {classes.warningText}>
-                Update things from this frontend sometimes works, sometimes don't <br />
-                I still need to look into how to get API gateway works well with Lambda function <br />
-                But invoke the URL (given below) directly from Postman always works <br />
+                Because of how each values has different keys, don't add new attribute other than ones that already defined<br />
+                I haven't really figured out how to loop through object keys to display all properties<br />
+                Edit items by invoking URL from Postman might be different from editing with frontend <br />
             </Typography>
         </>
     )

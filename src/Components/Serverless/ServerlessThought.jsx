@@ -3,16 +3,7 @@ export default function ServerlessThought() {
     return(
         <>
             <Typography variant = "h6">
-                Thoughts on AWS: 
-            </Typography>
-            <Typography variant = "body2">
-                AWS is a very powerful service that enable cloud computing.
-                However, I don't really have a use case with their famous EC2 instance <br />
-                So I try out their Serverless suite and it's very good.
-                However, some documentations are not up to date so it's hard to figure out <br />
-                Thoughts on DynamoDB: DynamoDB is very interesting.
-                Instead of having a unique key, you can have two keys to be part of unique key <br />
-                And instead of doing relational databases, it's better to store anything in one row
+                App Architecture
             </Typography>
             <Typography variant = "h6">
                 Architecture DynamoDB

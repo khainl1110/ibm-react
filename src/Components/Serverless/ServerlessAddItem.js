@@ -47,7 +47,7 @@ export default function ServerlessAddItem(){
         {
             type: 'text',
             value: copies,
-            label: 'copies', 
+            label: 'copies, default 1', 
             onChange: (e) => setCopies(e.target.value)
         }
     ]
@@ -56,6 +56,7 @@ export default function ServerlessAddItem(){
         if(year && title) {
             fetch('https://iov3zsd5oh.execute-api.us-west-2.amazonaws.com/Beta/movies', {
                 method: 'POST',
+                // need headers otherwise it won't accept
                 headers: {
                     'Content-Type': 'application/json',
                 },

@@ -31,6 +31,17 @@ export default function ServerlessItem({movie}) {
     let [ attribute, setAttribute ] = useState("")
     let [ value, setValue ] = useState("")
 
+    let [ keys, setKeys ] = useState([])
+
+    useEffect(()=> {
+        const keys = Object.keys(movie);
+        keys.forEach((key, index) => {
+            console.log(key + " and " + index);
+        }) 
+        setKeys(keys);
+        console.log(movie);
+    }, [])
+
     let handleAttributeChange = (e) => {
         setAttribute(e.target.value)
     }
@@ -70,7 +81,7 @@ export default function ServerlessItem({movie}) {
                     variant = "h6"
                     className = {classes.mainText}
                 >
-                Year: {movie.year.N}
+                year: {movie.year.N}
                 </Typography>
                 <Grid 
                     item container 
@@ -82,19 +93,14 @@ export default function ServerlessItem({movie}) {
                         variant = "h6"
                         className = {classes.mainText}
                     >
-                    Movie: {movie.title.S}
+                    movie: {movie.title.S}
                     </Typography>
                     <ServerlessDelete />
-                    {/* <Button 
-                        className = {classes.warningText}
-                    >
-                        Delete 
-                    </Button> */}
                 </Grid>
                 {/* These attributes below might not existed so need to check them first */}
-                { movie.copies && <Typography>Copies: {movie.copies.S}</Typography>}
-                { movie.quantity && <Typography>Quantity: {movie.quantity.S}</Typography>}
-                { movie.author && <Typography>Author: {movie.author.S}</Typography>}
+                { movie.copies && <Typography>copies: {movie.copies.S}</Typography>}
+                { movie.quantity && <Typography>quantity: {movie.quantity.S}</Typography>}
+                { movie.author && <Typography>author: {movie.author.S}</Typography>}
                 <Typography className = {classes.secondaryText}>Edit below</Typography>
                 <TextField
                     type = "text" 
@@ -116,7 +122,9 @@ export default function ServerlessItem({movie}) {
                 Confirm
                 </Button>
                 <Typography>
-                    Can only change values that are not part of key (Year, Movie)
+                    Can only change values that are not part of key (Year, Movie) <br />
+                    For ex, copies, quantity, author <br />
+                    No capitalize first word to match the database rows
                 </Typography>
             </Grid>
         </Paper>
