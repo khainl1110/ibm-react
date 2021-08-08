@@ -21,7 +21,7 @@ const useStyles = makeStyles((theme) => ({
     },
     
 }))
-export default function ServerlessAddItem(){
+export default function ServerlessAddItem({reloadData}){
     const classes = useStyles();
 
     // properties for tracking modal
@@ -48,7 +48,7 @@ export default function ServerlessAddItem(){
         {
             type: 'text',
             value: copies,
-            label: 'copies, default 1', 
+            label: 'copies', 
             onChange: (e) => setCopies(e.target.value)
         }
     ]
@@ -69,11 +69,16 @@ export default function ServerlessAddItem(){
                 })
             })
             .then(data => {
-                if(data.status)
+                if(data.status === 200) {
                     alert("Item added")
+                    reloadData()
+                    setTitle('')
+                    setYear('')
+                    setCopies('')
+                    setOpen(false)
+                }
                 else 
                     alert("Error")
-                console.log(data)
             })
             .catch(err => console.log(err))
         }

@@ -27,7 +27,7 @@ export default function ServerlessIndex() {
     return (
         <Paper>
             <ServerlessAbout />
-            <ServerlessAddItem />
+            <ServerlessAddItem reloadData = {reloadData}/>
             <Typography variant = "h5">Data</Typography>
             <Button 
                 startIcon = {<AutorenewIcon />} 
