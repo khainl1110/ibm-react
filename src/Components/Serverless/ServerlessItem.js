@@ -40,7 +40,6 @@ export default function ServerlessItem({ movie, reloadData }) {
             console.log(key + " and " + index);
         }) 
         setKeys(keys);
-        console.log(movie);
     }, [])
 
     let handleAttributeChange = (e) => {
@@ -63,16 +62,11 @@ export default function ServerlessItem({ movie, reloadData }) {
                 "updateValue": value
             })
             })
-            .then(response =>  response.json())
             .then(data => {
-                if(data.statusCode === 200)
-                    alert("Attribute changed")
-                else {
+                if(data.status !== 200)
                     alert(data.errorMessage)
-                    console.log(data.errorMessage)
-                }
-                console.log(data)
-                reloadData()
+                else 
+                    reloadData()
             })
         }
     }

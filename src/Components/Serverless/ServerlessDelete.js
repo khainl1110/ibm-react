@@ -41,9 +41,7 @@ export default function ServerlessDelete({movie, reloadData}) {
         })
         })
         .then(response => {
-            if(response.status === 200) 
-                alert("Delete item")
-            else
+            if(response.status !== 200)
                 alert("Error deleting item")
             setOpen(false);
             reloadData()

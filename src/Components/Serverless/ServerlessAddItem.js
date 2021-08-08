@@ -70,7 +70,6 @@ export default function ServerlessAddItem({reloadData}){
             })
             .then(data => {
                 if(data.status === 200) {
-                    alert("Item added")
                     reloadData()
                     setTitle('')
                     setYear('')
