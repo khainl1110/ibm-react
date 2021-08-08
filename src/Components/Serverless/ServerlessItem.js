@@ -26,7 +26,7 @@ const useStyles = makeStyles((theme)=> ({
     }
 }))
 
-export default function ServerlessItem({movie}) {
+export default function ServerlessItem({ movie, reloadData }) {
     const classes = useStyles();
     let [ attribute, setAttribute ] = useState("")
     let [ value, setValue ] = useState("")
@@ -72,6 +72,7 @@ export default function ServerlessItem({movie}) {
                     console.log(data.errorMessage)
                 }
                 console.log(data)
+                reloadData()
             })
         }
     }
@@ -96,7 +97,8 @@ export default function ServerlessItem({movie}) {
                     >
                     movie: {movie.title.S}
                     </Typography>
-                    <ServerlessDelete movie = {movie}/>
+                    {/* passing props around here, might be able to improve */}
+                    <ServerlessDelete movie = {movie} reloadData = {reloadData}/>
                 </Grid>
                 {/* These attributes below might not existed so need to check them first */}
                 { movie.copies && <Typography>copies: {movie.copies.S}</Typography>}

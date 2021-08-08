@@ -26,7 +26,7 @@ const useStyles = makeStyles((theme)=> ({
     },
 }))
 
-export default function ServerlessDelete({movie}) {
+export default function ServerlessDelete({movie, reloadData}) {
     const classes = useStyles();
 
     let [ open, setOpen ] = useState(false);
@@ -46,6 +46,7 @@ export default function ServerlessDelete({movie}) {
             else
                 alert("Error deleting item")
             setOpen(false);
+            reloadData()
         })
     }
     return(
