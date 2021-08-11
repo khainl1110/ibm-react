@@ -29,7 +29,7 @@ export default function ServerlessAbout() {
                 </b>
             </Typography>
             <Typography className = {classes.warningText}>
-                Because of how each values has different keys, don't add new attribute other than ones that already defined<br />
+                Because of how each values has different keys, adding new properties will work but will not display on the frontend<br/>
                 I haven't really figured out how to loop through object keys to display all properties<br />
             </Typography>
         </>
