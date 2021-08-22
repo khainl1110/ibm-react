@@ -94,12 +94,13 @@ export default function ServerlessAddItem({reloadData}){
         console.log(fileInput.current.files[0]);
         let file = fileInput.current.files[0];
         let newFileName = fileInput.current.files[0].name;
+
         const config = {
-            bucketName: "khainl1110-serverless",
-            dirName: "/images/avatar",
-            region: "us-west-2",
-            accessKeyId: "AKIAQH7O2BFE4CJMFQHL",
-            secretAccessKey: "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"
+            bucketName: ,
+            dirName: ,
+            region: ,
+            accessKeyId: ,
+            secretAccessKey: 
         }
         let ReactS3Client = new S3(config);
         ReactS3Client.uploadFile(file, newFileName).then(data => {
