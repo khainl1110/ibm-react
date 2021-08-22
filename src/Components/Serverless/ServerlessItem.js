@@ -1,4 +1,4 @@
-import { Grid, Paper, Typography, TextField, Button } from '@material-ui/core';
+import { Grid, Paper, Typography, TextField, Button, CardMedia } from '@material-ui/core';
 import { makeStyles } from '@material-ui/core/styles';
 import EditIcon from '@material-ui/icons/Edit';
 import { useEffect, useState } from 'react';
@@ -99,6 +99,9 @@ export default function ServerlessItem({ movie, reloadData }) {
                 { movie.copies && <Typography>copies: {movie.copies.S}</Typography>}
                 { movie.quantity && <Typography>quantity: {movie.quantity.S}</Typography>}
                 { movie.author && <Typography>author: {movie.author.S}</Typography>}
+                { movie.avatarFileName && <img width = "100" height = "100"
+                src = {new String('http://khainl1110-serverless.s3-website-us-west-2.amazonaws.com/images/avatar/' +movie.avatarFileName.S)}/>
+                }
                 <Typography className = {classes.secondaryText}>Edit below</Typography>
                 <TextField
                     type = "text" 

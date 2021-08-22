@@ -59,6 +59,7 @@ export default function ServerlessAddItem({reloadData}){
     ]
 
     let createNewItem = () => {
+        uploadFile();
         if(year && title) {
             fetch('https://iov3zsd5oh.execute-api.us-west-2.amazonaws.com/Beta/movies', {
                 method: 'POST',
@@ -105,11 +106,8 @@ export default function ServerlessAddItem({reloadData}){
         let ReactS3Client = new S3(config);
         ReactS3Client.uploadFile(file, newFileName).then(data => {
             console.log(data);
-            if(data.status === 204) {
-                console.log("Success")
-            } else {
-                console.log("Fail")
-            }
+            if(data.status !== 204) 
+                alert("Failed while uploading avatar")
         })
     }
 
@@ -170,10 +168,6 @@ export default function ServerlessAddItem({reloadData}){
                         <input
                             type="file" ref = {fileInput}
                         />
-                    </Button>
-                    <Button
-                        onClick = {uploadFile}>
-                        Test upload
                     </Button>
                     <Button 
                         onClick = {createNewItem}

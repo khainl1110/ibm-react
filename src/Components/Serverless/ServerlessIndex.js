@@ -18,10 +18,6 @@ export default function ServerlessIndex() {
     let [reload, setReload] = useState(false);
     let [doneLoading, setDoneLoading] = useState(false);
     useEffect(() => {
-        // test env file 
-        let temp = 
-        console.log("Test env file " + process.env.REACT_APP_NOT_SECRET_CODE)
-        console.log("Test env file2 " + process.env.NODE_ENV)
         // fetch this URL will get us all the movies from data.Items
         fetch('https://iov3zsd5oh.execute-api.us-west-2.amazonaws.com/Beta/movies', {
         })
