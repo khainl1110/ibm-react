@@ -81,6 +81,7 @@ export default function ServerlessDelete({movie, reloadData}) {
                     <Button
                         startIcon = {<CloseIcon />}
                         className = {classes.secondaryText}
+                        onClick = {() => setOpen(false)}
                     >
                         <Typography>
                             No

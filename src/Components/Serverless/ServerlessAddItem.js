@@ -1,6 +1,7 @@
 import { Modal, Typography, TextField, Button } from "@material-ui/core";
 import { makeStyles } from '@material-ui/core/styles';
-import { useState } from "react"
+import { useState, useRef } from "react";
+import S3 from "react-aws-s3";
 
 const useStyles = makeStyles((theme) => ({
     modal: {
@@ -32,6 +33,10 @@ export default function ServerlessAddItem({reloadData}){
     let [ year, setYear ] = useState('')
     let [ copies, setCopies ] = useState('')
 
+    // file input for uploading
+    let fileInput = useRef();
+
+    // input form
     let inputs = [
         {
             type : "text",
@@ -50,7 +55,7 @@ export default function ServerlessAddItem({reloadData}){
             value: copies,
             label: 'copies', 
             onChange: (e) => setCopies(e.target.value)
-        }
+        },
     ]
 
     let createNewItem = () => {
@@ -65,7 +70,8 @@ export default function ServerlessAddItem({reloadData}){
                 body: JSON.stringify({
                     "year": year,
                     "title": title,
-                    "copies": copies
+                    "copies": copies,
+                    "avatarFileName": fileInput.current.files[0].name
                 })
             })
             .then(data => {
@@ -81,6 +87,29 @@ export default function ServerlessAddItem({reloadData}){
             })
             .catch(err => console.log(err))
         }
+    }
+
+    // to upload file
+    let uploadFile = () => {
+        console.log(fileInput.current.files[0]);
+        let file = fileInput.current.files[0];
+        let newFileName = fileInput.current.files[0].name;
+        const config = {
+            bucketName: "khainl1110-serverless",
+            dirName: "/images/avatar",
+            region: "us-west-2",
+            accessKeyId: "AKIAQH7O2BFE4CJMFQHL",
+            secretAccessKey: "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"
+        }
+        let ReactS3Client = new S3(config);
+        ReactS3Client.uploadFile(file, newFileName).then(data => {
+            console.log(data);
+            if(data.status === 204) {
+                console.log("Success")
+            } else {
+                console.log("Fail")
+            }
+        })
     }
 
     return(
@@ -126,6 +155,25 @@ export default function ServerlessAddItem({reloadData}){
                             )
                         })
                     }
+                    <Typography 
+                        variant = "h6" 
+                        className = {classes.mainText}
+                    >
+                        Movie avatar
+                    </Typography>
+                    <Button
+                        variant="contained"
+                        component="label"
+                    >
+                        Upload File
+                        <input
+                            type="file" ref = {fileInput}
+                        />
+                    </Button>
+                    <Button
+                        onClick = {uploadFile}>
+                        Test upload
+                    </Button>
                     <Button 
                         onClick = {createNewItem}
                         className = {classes.secondaryText}

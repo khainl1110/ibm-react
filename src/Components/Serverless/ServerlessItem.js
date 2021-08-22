@@ -34,13 +34,14 @@ export default function ServerlessItem({ movie, reloadData }) {
     let [ keys, setKeys ] = useState([])
 
     // working to loop through every key in object
-    useEffect(()=> {
-        const keys = Object.keys(movie);
-        keys.forEach((key, index) => {
-            console.log(key + " and " + index);
-        }) 
-        setKeys(keys);
-    }, [])
+    // still in progress
+    // useEffect(()=> {
+    //     const keys = Object.keys(movie);
+    //     // keys.forEach((key, index) => {
+    //     //     console.log(key + " and " + index);
+    //     // }) 
+    //     setKeys(keys);
+    // }, [])
 
     let handleAttributeChange = (e) => {
         setAttribute(e.target.value)
