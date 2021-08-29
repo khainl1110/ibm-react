@@ -14,11 +14,12 @@ export default function ServerlessAbout() {
             <Typography variant = "h3">AWS Serverless</Typography>
             <Typography variant = "body1">
                 This is a new project with the backend is completely 
-                on the cloud using AWS Serverless Suite <br/>
-                Serverless Architecture: API Gateway -{'>'} AWS Lambda -{'>'} DynamoDB <br/>
+                on the cloud using AWS Serverless Suite and images are stored in S3 bucket <br/>
+                Serverless Architecture: API Gateway -{'>'} AWS Lambda -{'>'} DynamoDB and S3<br/>
                 DynamoDb stores simple MOVIES table data layer, 
                 AWS Lambda stores the logic layer while API 
                 Gateway is the routing layer <br/>
+                And S3 is for file storage <br />
                 Click on Serverless button above the access the app <br />
                 The IAM account below has been given permission to view DynamoDB and Lambda function <br />
                 <b>

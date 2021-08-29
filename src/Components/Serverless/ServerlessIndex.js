@@ -17,6 +17,7 @@ export default function ServerlessIndex() {
     let [movies, setMovies] = useState([])
     let [reload, setReload] = useState(false);
     let [doneLoading, setDoneLoading] = useState(false);
+
     useEffect(() => {
         // fetch this URL will get us all the movies from data.Items
         fetch('https://iov3zsd5oh.execute-api.us-west-2.amazonaws.com/Beta/movies', {

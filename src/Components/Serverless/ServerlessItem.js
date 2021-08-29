@@ -33,6 +33,8 @@ export default function ServerlessItem({ movie, reloadData }) {
 
     let [ keys, setKeys ] = useState([])
 
+    // state to store avatar
+
     // working to loop through every key in object
     // still in progress
     // useEffect(()=> {
@@ -74,34 +76,44 @@ export default function ServerlessItem({ movie, reloadData }) {
     return(
         <Paper className = {classes.paper}>
             <Grid item className = {classes.item}>
-                <Typography 
-                    variant = "h6"
-                    className = {classes.mainText}
-                >
-                year: {movie.year.N}
-                </Typography>
                 <Grid 
                     item container 
                     direction="row" 
                     justifyContent="space-between" 
                     alignItems="center"
                 >
-                    <Typography 
-                        variant = "h6"
-                        className = {classes.mainText}
-                    >
-                    movie: {movie.title.S}
-                    </Typography>
-                    {/* passing props around here, might be able to improve */}
-                    <ServerlessDelete movie = {movie} reloadData = {reloadData}/>
+                    { movie.avatarFileName && <img width = "100" height = "100"
+                    src = {new String('https://khainl1110-serverless.s3.us-west-2.amazonaws.com/images/avatar/' + movie.avatarFileName.S)}
+                    />
+                    }
+                    <Grid item>
+                        <Typography 
+                            variant = "h6"
+                            className = {classes.mainText}
+                        >
+                        year: {movie.year.N}
+                        </Typography>
+                        <Grid 
+                            item container 
+                            direction="row" 
+                            justifyContent="space-between" 
+                            alignItems="center"
+                        >
+                            <Typography 
+                                variant = "h6"
+                                className = {classes.mainText}
+                            >
+                            movie: {movie.title.S}
+                            </Typography>
+                            {/* passing props around here, might be able to improve */}
+                            <ServerlessDelete movie = {movie} reloadData = {reloadData}/>
+                        </Grid>
+                    </Grid>
                 </Grid>
                 {/* These attributes below might not existed so need to check them first */}
                 { movie.copies && <Typography>copies: {movie.copies.S}</Typography>}
                 { movie.quantity && <Typography>quantity: {movie.quantity.S}</Typography>}
                 { movie.author && <Typography>author: {movie.author.S}</Typography>}
-                { movie.avatarFileName && <img width = "100" height = "100"
-                src = {new String('http://khainl1110-serverless.s3-website-us-west-2.amazonaws.com/images/avatar/' +movie.avatarFileName.S)}/>
-                }
                 <Typography className = {classes.secondaryText}>Edit below</Typography>
                 <TextField
                     type = "text" 

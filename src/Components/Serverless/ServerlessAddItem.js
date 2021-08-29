@@ -2,6 +2,7 @@ import { Modal, Typography, TextField, Button } from "@material-ui/core";
 import { makeStyles } from '@material-ui/core/styles';
 import { useState, useRef } from "react";
 import S3 from "react-aws-s3";
+import axios from 'axios';
 
 const useStyles = makeStyles((theme) => ({
     modal: {
@@ -34,7 +35,7 @@ export default function ServerlessAddItem({reloadData}){
     let [ copies, setCopies ] = useState('')
 
     // file input for uploading
-    let fileInput = useRef();
+    const [selectedFile, setSelectedFile] = useState(null);
 
     // input form
     let inputs = [
@@ -57,9 +58,10 @@ export default function ServerlessAddItem({reloadData}){
             onChange: (e) => setCopies(e.target.value)
         },
     ]
+    const handleFileInput = (e) => setSelectedFile(e.target.files[0]);
 
     let createNewItem = () => {
-        uploadFile();
+        uploadFile(selectedFile);
         if(year && title) {
             fetch('https://iov3zsd5oh.execute-api.us-west-2.amazonaws.com/Beta/movies', {
                 method: 'POST',
@@ -72,7 +74,7 @@ export default function ServerlessAddItem({reloadData}){
                     "year": year,
                     "title": title,
                     "copies": copies,
-                    "avatarFileName": fileInput.current.files[0].name
+                    "avatarFileName": selectedFile.name
                 })
             })
             .then(data => {
@@ -91,23 +93,17 @@ export default function ServerlessAddItem({reloadData}){
     }
 
     // to upload file
-    let uploadFile = () => {
-        console.log(fileInput.current.files[0]);
-        let file = fileInput.current.files[0];
-        let newFileName = fileInput.current.files[0].name;
-
-        const config = {
-            bucketName: ,
-            dirName: ,
-            region: ,
-            accessKeyId: ,
-            secretAccessKey: 
-        }
-        let ReactS3Client = new S3(config);
-        ReactS3Client.uploadFile(file, newFileName).then(data => {
-            console.log(data);
-            if(data.status !== 204) 
-                alert("Failed while uploading avatar")
+    let uploadFile = (file) => {
+        axios.post('https://iov3zsd5oh.execute-api.us-west-2.amazonaws.com/Beta/testS3', {
+            "bucket":"khainl1110-serverless",
+            "key": "images/avatar/" +file.name,
+            "fileType": file.type
+        })
+        .then(res => {
+            console.log(res)
+            console.log(res.data.link)
+            axios.put(res.data.link,file)
+            .then(result => console.log(result))
         })
     }
 
@@ -165,9 +161,7 @@ export default function ServerlessAddItem({reloadData}){
                         component="label"
                     >
                         Upload File
-                        <input
-                            type="file" ref = {fileInput}
-                        />
+                        <input type="file" onChange={handleFileInput}/>
                     </Button>
                     <Button 
                         onClick = {createNewItem}
