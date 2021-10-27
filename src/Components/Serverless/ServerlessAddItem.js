@@ -60,8 +60,17 @@ export default function ServerlessAddItem({reloadData}){
     ]
     const handleFileInput = (e) => setSelectedFile(e.target.files[0]);
 
+    let controlCreateNewItem = () => {
+        if(selectedFile)
+            createNewItem()
+        else {
+            createNewItemWithoutFile()
+            alert("create without file")
+        }
+    }
     let createNewItem = () => {
         uploadFile(selectedFile);
+
         if(year && title) {
             fetch('https://iov3zsd5oh.execute-api.us-west-2.amazonaws.com/Beta/movies', {
                 method: 'POST',
@@ -92,6 +101,37 @@ export default function ServerlessAddItem({reloadData}){
         }
     }
 
+    // for when adding new movies without pictures
+    let createNewItemWithoutFile = () => {
+        if(year && title) {
+            fetch('https://iov3zsd5oh.execute-api.us-west-2.amazonaws.com/Beta/movies', {
+                method: 'POST',
+                // need headers otherwise it won't accept
+                headers: {
+                    'Content-Type': 'application/json',
+                },
+                // need to stringify or it won't work
+                body: JSON.stringify({
+                    "year": year,
+                    "title": title,
+                    "copies": copies,
+                    "avatarFileName": null // cannot have null, but other value this will have bugs
+                })
+            })
+            .then(data => {
+                if(data.status === 200) {
+                    reloadData()
+                    setTitle('')
+                    setYear('')
+                    setCopies('')
+                    setOpen(false)
+                }
+                else 
+                    alert("Error")
+            })
+            .catch(err => console.log(err))
+        }
+    }
     // to upload file
     let uploadFile = (file) => {
         axios.post('https://iov3zsd5oh.execute-api.us-west-2.amazonaws.com/Beta/testS3', {
@@ -164,7 +204,7 @@ export default function ServerlessAddItem({reloadData}){
                         <input type="file" onChange={handleFileInput}/>
                     </Button>
                     <Button 
-                        onClick = {createNewItem}
+                        onClick = {controlCreateNewItem}
                         className = {classes.secondaryText}
                     > 
                     Add new item
