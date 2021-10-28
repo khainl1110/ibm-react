@@ -61,12 +61,7 @@ export default function ServerlessAddItem({reloadData}){
     const handleFileInput = (e) => setSelectedFile(e.target.files[0]);
 
     let controlCreateNewItem = () => {
-        if(selectedFile)
-            createNewItem()
-        else {
-            createNewItemWithoutFile()
-            alert("create without file")
-        }
+        createNewItem();
     }
     let createNewItem = () => {
         uploadFile(selectedFile);
@@ -101,7 +96,7 @@ export default function ServerlessAddItem({reloadData}){
         }
     }
 
-    // for when adding new movies without pictures
+    // for when adding new movies without pictures, still working on it
     let createNewItemWithoutFile = () => {
         if(year && title) {
             fetch('https://iov3zsd5oh.execute-api.us-west-2.amazonaws.com/Beta/movies', {
@@ -211,7 +206,9 @@ export default function ServerlessAddItem({reloadData}){
                     </Button>
                     <Typography>
                         Note: title and year values are required <br/>
-                        No effect if title and year pair already existed
+                        No effect if title and year pair already existed <br/>
+                        <b> Right now needs to upload a image to work as well </b> <br/>
+                        <b> Image name should not have any space in between </b>
                     </Typography>
                 </div>
             </Modal>
