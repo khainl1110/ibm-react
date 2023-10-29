@@ -21,13 +21,13 @@ export default function ServerlessAbout() {
                 Gateway is the routing layer <br/>
                 And S3 is for file storage <br />
                 Click on Serverless button above the access the app <br />
-                The IAM account below has been given permission to view DynamoDB and Lambda function <br />
+                {/* The IAM account below has been given permission to view DynamoDB and Lambda function <br />
                 <b>
                 URL: https://khainl1110-aws.signin.aws.amazon.com/console/ <br/>
                 Username: visitor <br />
                 Password: passenger3879!@ <br />
                 Choose us-west-2 region <br />
-                </b>
+                </b> */}
             </Typography>
             <Typography className = {classes.warningText}>
                 Because of how each values has different keys, adding new properties will work but will not display on the frontend<br/>
