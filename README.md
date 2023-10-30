@@ -72,3 +72,8 @@ This section has moved here: [https://facebook.github.io/create-react-app/docs/t
 
 # Things to remember
 - Need to enable cors, and check default 4xx for api resources to work
+
+
+# Things to do
+- Add tag to the movies
+- Search by tag
