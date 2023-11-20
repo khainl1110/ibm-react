@@ -32,6 +32,19 @@ export default function ServerlessDelete({movie, reloadData}) {
 
     let [ open, setOpen ] = useState(false);
 
+    let deleteImageFromS3 = async (fileName) => {
+        axios.post(serverlessURL+'testS3', {
+            "bucket":"khainl1110-serverless",
+            "key": "images/avatar/" +fileName,
+            "fileType": file.type
+        })
+        .then(res => {
+            console.log(res)
+            console.log(res.data.link)
+            axios.delete(res.data.link,fileName)
+            .then(result => console.log(result))
+        })
+    }
     let deleteItem = async () => {
         await fetch(serverlessURL+'movies', {
         method: 'DELETE',
@@ -91,6 +104,11 @@ export default function ServerlessDelete({movie, reloadData}) {
                     </Grid>
                 </div>
             </Modal>
+            <Button
+                onClick={() => deleteImageFromS3('suicide_squad_2.jpg')}
+            >
+                Test delete
+            </Button>
         </div>
     )
 }
