@@ -3,6 +3,7 @@ import { makeStyles } from '@material-ui/core/styles';
 import { useState } from 'react';
 import DoneIcon from '@material-ui/icons/Done';
 import CloseIcon from '@material-ui/icons/Close';
+import { serverlessURL } from './constants';
 
 const useStyles = makeStyles((theme)=> ({
     mainText: {
@@ -32,7 +33,7 @@ export default function ServerlessDelete({movie, reloadData}) {
     let [ open, setOpen ] = useState(false);
 
     let deleteItem = async () => {
-        await fetch('https://iov3zsd5oh.execute-api.us-west-2.amazonaws.com/Beta/movies', {
+        await fetch(serverlessURL+'movies', {
         method: 'DELETE',
         body: JSON.stringify({
             "tableName": "MOVIES",

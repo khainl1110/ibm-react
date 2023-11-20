@@ -6,6 +6,8 @@ import ServerlessAbout from "./ServerlessAbout";
 import ServerlessArchitecture from "./ServerlessArchitecture";
 import AutorenewIcon from '@material-ui/icons/Autorenew';
 
+var {serverlessURL} = require('./constants')
+
 const styles = {
     largeIcon: {
         width: 1000,
@@ -20,7 +22,7 @@ export default function ServerlessIndex() {
 
     useEffect(() => {
         // fetch this URL will get us all the movies from data.Items
-        fetch('https://iov3zsd5oh.execute-api.us-west-2.amazonaws.com/Beta/movies', {
+        fetch(serverlessURL+'movies', {
         })
         .then(response => response.json())
         .then(data => {
