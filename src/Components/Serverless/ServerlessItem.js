@@ -4,6 +4,8 @@ import EditIcon from '@material-ui/icons/Edit';
 import { useEffect, useState } from 'react';
 import ServerlessDelete from './ServerlessDelete';
 
+var {serverlessURL} = require('./constants')
+
 const useStyles = makeStyles((theme)=> ({
     paper: {
         margin: 10,
@@ -55,7 +57,7 @@ export default function ServerlessItem({ movie, reloadData }) {
 
     let requestChange = async () => {
         if(attribute && value) {
-            await fetch('https://iov3zsd5oh.execute-api.us-west-2.amazonaws.com/Beta/movies', {
+            await fetch(serverlessURL+'movies', {
             method: 'PUT',
             body: JSON.stringify({
                 "tableName": "MOVIES",

@@ -1,8 +1,9 @@
 import { Modal, Typography, TextField, Button } from "@material-ui/core";
 import { makeStyles } from '@material-ui/core/styles';
-import { useState, useRef } from "react";
-import S3 from "react-aws-s3";
+import { useState } from "react";
 import axios from 'axios';
+
+var {serverlessURL} = require('./constants')
 
 const useStyles = makeStyles((theme) => ({
     modal: {
@@ -67,7 +68,7 @@ export default function ServerlessAddItem({reloadData}){
         uploadFile(selectedFile);
 
         if(year && title) {
-            fetch('https://iov3zsd5oh.execute-api.us-west-2.amazonaws.com/Beta/movies', {
+            fetch(serverlessURL+'movies', {
                 method: 'POST',
                 // need headers otherwise it won't accept
                 headers: {
@@ -129,7 +130,7 @@ export default function ServerlessAddItem({reloadData}){
     }
     // to upload file
     let uploadFile = (file) => {
-        axios.post('https://iov3zsd5oh.execute-api.us-west-2.amazonaws.com/Beta/testS3', {
+        axios.post(serverlessURL+'testS3', {
             "bucket":"khainl1110-serverless",
             "key": "images/avatar/" +file.name,
             "fileType": file.type
