@@ -41,6 +41,13 @@ export default function NavBar() {
                         Serverless
                         </Button>
                     </Link>
+                    <Link to = "/gitClone" className = {classes.button}>
+                        <Button
+                            color = "inherit"
+                        >
+                            Git Clone 
+                        </Button>
+                    </Link>
                     <Link to = "/thoughts" className = {classes.button}>
                         <Button 
                             color = "inherit"

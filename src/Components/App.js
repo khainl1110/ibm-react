@@ -11,6 +11,7 @@ import Users from "./UsersPage"
 import TestingApp from './TestingApp';
 import ServerlessIndex from './Serverless/ServerlessIndex';
 import Thoughts from "./Thoughts";
+import GitClone from './GitClone/GitClone';
 
 export default function App() {
 
@@ -42,6 +43,9 @@ export default function App() {
                     </Route>
                     <Route path = "/thoughts">
                         <Thoughts />
+                    </Route>
+                    <Route path = "/gitClone">
+                        <GitClone />
                     </Route>
                     <Route path="/">
                         <HomePage />

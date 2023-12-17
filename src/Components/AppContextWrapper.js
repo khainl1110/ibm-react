@@ -1,10 +1,12 @@
 import React, { useState } from 'react';
 import App from './App';
 import AppContext from './Context/AppContext';
+import LoggedInContext from './Context/LoggedInContext';
 
 export default function AppContextWrapper() {
     let [test, setTest] = useState("test")
     let [cart, setCart] = useState([{id:1, quantity:1}])
+    let [loggedIn, setLoggedIn] = useState(false)
     /*
         the cart will have the following structure:
             id and quantity
@@ -19,7 +21,9 @@ export default function AppContextWrapper() {
             {value2: [cart, setCart]}
             }
         >
+        <LoggedInContext.Provider value = {{loggedIn, setLoggedIn}}>
            <App />
-       </AppContext.Provider>
+        </LoggedInContext.Provider>
+        </AppContext.Provider>
    )
 }
