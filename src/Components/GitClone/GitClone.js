@@ -23,6 +23,12 @@ export default function GitClone() {
                 onChange={e => setContent(e.target.value)}
             />
 
+            <TextField
+                multiline
+                defaultValue={gitCommitMsg}
+                onChange={e => setGitCommitMsg(e.target.value)}
+            />
+
             <Button >
                 Hello
             </Button>
