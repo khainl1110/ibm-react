@@ -6,11 +6,24 @@ export default function GitClone() {
 
     let [content, setContent] = useState("This is some contsdfsdfsdfsdent")
     let [gitCommitMsg, setGitCommitMsg] = useState("This is git commit message")
+    let [gitCommits, setGitCommits] = useState([])
     let {loggedIn, setLoggedIn} = useContext(LoggedInContext)
 
-    // let controlCreateNewItem = () => {
-    //     createNewItem();
-    // }
+    let fetchAllGitCommits = () => {
+        fetch('https://iov3zsd5oh.execute-api.us-west-2.amazonaws.com/Beta/gitCommit', {
+        })
+        .then(response => response.json())
+        .then(data => {
+            // has lag
+            data.Items.sort((a,b) => a.lvl.N - b.lvl.N)
+            setGitCommits(data.Items)
+            for(const d of gitCommits) {
+                //let temp = {CommitMsg: d.CommitMsg.S,Content: d.Content.S,HashCommit: d.HashCommit.S, HashParent: d.HashParent.S}
+                console.log(d.CommitMsg.S + " " + d.Content.S + " " + d.HashCommit.S + " " + d.HashParent.S + " " + d.lvl.N)
+              
+            } 
+        })
+    }
 
     return(
         <div>
@@ -29,7 +42,7 @@ export default function GitClone() {
                 onChange={e => setGitCommitMsg(e.target.value)}
             />
 
-            <Button >
+            <Button onClick={fetchAllGitCommits}>
                 Hello
             </Button>
         </div>
