@@ -11,6 +11,7 @@ export default function GitClone() {
     let [gitCommits, setGitCommits] = useState([])
     let [lvl, setLvl] = useState(0)
     let [hashParent, setHashParent] = useState('adgfdd')
+    let [reload, setReload] = useState(false)
     let {loggedIn, setLoggedIn} = useContext(LoggedInContext)
 
     let fetchAllGitCommits = () => {
@@ -49,7 +50,7 @@ export default function GitClone() {
         }).then(response => response.json())
         .then(data => console.log(data))
     }
-    useEffect(fetchAllGitCommits, [])
+    useEffect(fetchAllGitCommits, [reload])
 
     return(
         <div>
@@ -67,10 +68,6 @@ export default function GitClone() {
                 defaultValue={gitCommitMsg}
                 onChange={e => setGitCommitMsg(e.target.value)}
             />
-
-            <Button>
-                Create new commit
-            </Button>
             <Button onClick = {pushNewCommit}>
                 Push to git repo
             </Button>
@@ -79,6 +76,9 @@ export default function GitClone() {
                 Test level
             </Button>
 
+            <Button onClick ={() => setReload(!reload)}>
+                Reload 
+            </Button>
             <div>
                 <h1>Git commits </h1>
                 <h2>Commits</h2>
